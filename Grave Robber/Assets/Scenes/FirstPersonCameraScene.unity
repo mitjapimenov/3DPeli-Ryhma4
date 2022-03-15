@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 116981491}
   - component: {fileID: 116981490}
   - component: {fileID: 116981493}
+  - component: {fileID: 116981495}
+  - component: {fileID: 116981494}
   m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
@@ -151,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116981488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.354, y: 5.083, z: -7.529}
+  m_LocalPosition: {x: 6.354, y: 6.09, z: -7.529}
   m_LocalScale: {x: 1.4987003, y: 1.4987003, z: 1.4987003}
   m_Children: []
   m_Father: {fileID: 1076064768}
@@ -233,10 +235,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 116981495}
+        m_TargetAssemblyTypeName: AnimationHandler, Assembly-CSharp
+        m_MethodName: ToggleBool
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Open
+          m_BoolArgument: 0
+        m_CallState: 2
   interactIcon: {fileID: 0}
   iconSize: {x: 0, y: 0}
   ID: 0
+--- !u!95 &116981494
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116981488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80498fd4c10774f40a5f272d26feb4db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &116981495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116981488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 166ca09fbc96fd94e8c0ec58b5f3da45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 116981494}
 --- !u!1 &180582729
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +673,7 @@ MonoBehaviour:
     m_Bits: 64
   interactImage: {fileID: 1270124951}
   defaultIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  defaultIconSize: {x: 20, y: 20}
+  defaultIconSize: {x: 10, y: 10}
   defaultInteractIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   defaultInteractIconSize: {x: 60, y: 60}
 --- !u!1 &793030034
@@ -1320,7 +1366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 692104910}
-  mouseSensitivity: 2.5
+  mouseSensitivity: 2
   walkSpeed: 4
   gravity: -13
   moveSmoothTime: 0.1

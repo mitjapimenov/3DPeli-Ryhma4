@@ -13,6 +13,7 @@ public class Interactor : MonoBehaviour
     public Vector2 defaultIconSize;
     public Sprite defaultInteractIcon;
     public Vector2 defaultInteractIconSize;
+    public bool isOpen; // Muutettu
 
 
     void Update()
@@ -48,9 +49,11 @@ public class Interactor : MonoBehaviour
                     interactImage.rectTransform.sizeDelta = defaultInteractIconSize;
                 }
 
-               if (Input.GetKeyDown(KeyCode.E))
+               if (!isOpen && Input.GetKeyDown(KeyCode.E)) // !isOpen muutos
                {
-                  interactable.onInteract.Invoke();
+                    Debug.Log("Aarre avattu"); // Muutettu
+                    isOpen = true; // Muutettu
+                    interactable.onInteract.Invoke();
                }
            }
         }

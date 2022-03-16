@@ -19,7 +19,8 @@ public class Interactor : MonoBehaviour
     {
         RaycastHit hit;
 
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 2, interactableLayermask))
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 2.3f , interactableLayermask))
+                                                                                                //Interact pituus 
         {
            if (hit.collider.GetComponent<Interactable>() != false)
            {

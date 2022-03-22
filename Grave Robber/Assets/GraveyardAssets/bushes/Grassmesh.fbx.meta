@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 84d82e17c926f1c44a976ca9d9207ff0
+guid: 553ec6299f8b83f4eaa21e555e54c2d2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ColorTextureMaterial
-    second: {fileID: 2100000, guid: ee81a1e36d67c40448a296382a5af04f, type: 2}
+      name: Trianglegrass
+    second: {fileID: 2100000, guid: ede34d704baf5c54685f1d94b68859bf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -38,9 +38,7 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages:
-    - 0.25
-    - 0.01
+    lODScreenPercentages: []
     globalScale: 100
     meshCompression: 0
     addColliders: 0
@@ -92,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 100
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

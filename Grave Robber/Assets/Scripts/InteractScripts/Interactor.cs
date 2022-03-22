@@ -13,8 +13,10 @@ public class Interactor : MonoBehaviour
     public Vector2 defaultIconSize;
     public Sprite defaultInteractIcon;
     public Vector2 defaultInteractIconSize;
-    public bool isOpen; // Muutettu
 
+    public bool isOpen; // Muutettu
+    public GameObject enemy; // Muutettu
+    public GameObject enemySpawn;//Muutettu
 
     void Update()
     {
@@ -54,7 +56,8 @@ public class Interactor : MonoBehaviour
                     Debug.Log("Aarre avattu"); // Muutettu
                     isOpen = true; // Muutettu
                     interactable.onInteract.Invoke();
-               }
+                    GameObject projectile = Instantiate(enemy, enemySpawn.transform.position, Quaternion.identity); //Muutettu
+                }
            }
         }
         else 

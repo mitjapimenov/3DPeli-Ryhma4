@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eb353a5534f89944e8165be00f461601
+guid: ad811de4d2bde044bb8ab6b89240da3b
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -9,11 +9,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: ColorTextureMaterial
     second: {fileID: 2100000, guid: ee81a1e36d67c40448a296382a5af04f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: stone
-    second: {fileID: 2100000, guid: 7c6d696275b90094e92e92f7eef30ce3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -46,7 +41,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 100
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
@@ -55,7 +50,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1

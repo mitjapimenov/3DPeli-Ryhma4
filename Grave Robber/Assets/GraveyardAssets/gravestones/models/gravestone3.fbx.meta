@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2958f289e21420847bf08fe78862efc0
+guid: eb353a5534f89944e8165be00f461601
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: ColorTextureMaterial
     second: {fileID: 2100000, guid: ee81a1e36d67c40448a296382a5af04f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone
+    second: {fileID: 2100000, guid: 7c6d696275b90094e92e92f7eef30ce3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -50,7 +55,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1

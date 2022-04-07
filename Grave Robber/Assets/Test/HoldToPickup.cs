@@ -10,13 +10,14 @@ public class HoldToPickup : MonoBehaviour
     public GameObject enemy; // Muutettu
     public GameObject enemySpawn;//Muutettu
     public GameObject enemySpawn2;//Muutettu
+    public GameObject enemySpawn3; //Muutettu    
 
     [SerializeField]
     public Camera camera1;
     [SerializeField]
     private LayerMask layermask;
     [SerializeField]
-    private float pickupTime = 2f;
+    private float pickupTime = 10f; //Muutettu nyt 10f ja sama Player Hierarchy kohdassa.
     [SerializeField]
     private RectTransform pickupImageRoot;
     [SerializeField]
@@ -84,6 +85,13 @@ public class HoldToPickup : MonoBehaviour
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
         }
+        else if (itemBeingPickedUp.name == "kultaharkot3") //Make These if statement what you wanna do for item
+        {
+            GameObject projectile = Instantiate(enemy, enemySpawn3.transform.position, Quaternion.identity); //Muutettu
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+
     }
 
     private bool HasItemTargetted()
@@ -107,7 +115,7 @@ public class HoldToPickup : MonoBehaviour
             else if (hititem != null && hititem != itemBeingPickedUp)
             {
                 itemBeingPickedUp = hititem;
-                itemNameText.text = "Ker‰‰ " + itemBeingPickedUp.name;
+                itemNameText.text = "Dig " /*+ itemBeingPickedUp.name*/;
             }
         }
         else

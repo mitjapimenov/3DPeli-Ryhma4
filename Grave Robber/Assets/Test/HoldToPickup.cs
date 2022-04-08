@@ -10,13 +10,13 @@ public class HoldToPickup : MonoBehaviour
 {
     public GameObject enemy; // Muutettu
     public GameObject enemySpawn;//Muutettu
-    public GameObject enemySpawn2;//Muutettu
-    public GameObject enemySpawn3; //Muutettu
+    public GameObject enemySpawn2;//Muutettu    
 
     public GameObject exit;
     public GameObject exitSpawn;
     public GameObject exitSpawn2;
     public GameObject exitSpawn3;
+    public GameObject exitSpawn4;
 
     public int collectable;
     public GameObject collectableItem;
@@ -24,12 +24,17 @@ public class HoldToPickup : MonoBehaviour
     public GameObject collectableSpawn2;
     public GameObject collectableSpawn3;
 
+    public GameObject pelastys;
+    public GameObject pelastysSpawn;
+    public GameObject pelastysSpawn2;
+    public GameObject pelastysSpawn3;
+
     [SerializeField]
     public Camera camera1;
     [SerializeField]
     private LayerMask layermask;
     [SerializeField]
-    private float pickupTime = 10f; //Muutettu nyt 10f ja sama Player Hierarchy kohdassa.
+    private float pickupTime = 2f; //Muutettu nyt 10f ja sama Player Hierarchy kohdassa.
     [SerializeField]
     private RectTransform pickupImageRoot;
     [SerializeField]
@@ -87,37 +92,55 @@ public class HoldToPickup : MonoBehaviour
     {
         if (itemBeingPickedUp.name == "kultaharkot1") //Make These if statement what you wanna do for item
         {
-            GameObject projectile = Instantiate(enemy, enemySpawn.transform.position, Quaternion.identity); //Muutettu
+            GameObject projectile = Instantiate(collectableItem, collectableSpawn.transform.position, Quaternion.identity); //Muutettu
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+        else if (itemBeingPickedUp.name == "Cube1") //Make These if statement what you wanna do for item
+        {
+            GameObject projectile = Instantiate(pelastys, pelastysSpawn.transform.position, Quaternion.identity); //Muutettu
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
         }
         else if (itemBeingPickedUp.name == "kultaharkot2") //Make These if statement what you wanna do for item
         {
-            GameObject projectile = Instantiate(enemy, enemySpawn2.transform.position, Quaternion.identity); //Muutettu
+            GameObject projectile = Instantiate(collectableItem, collectableSpawn2.transform.position, Quaternion.identity); //Muutettu
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+        else if (itemBeingPickedUp.name == "Enemy1") //Make These if statement what you wanna do for item
+        {
+            GameObject projectile = Instantiate(enemy, enemySpawn.transform.position, Quaternion.identity); //Muutettu
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
         }
         else if (itemBeingPickedUp.name == "kultaharkot3") //Make These if statement what you wanna do for item
         {
-            GameObject projectile = Instantiate(enemy, enemySpawn3.transform.position, Quaternion.identity); //Muutettu
-            Destroy(itemBeingPickedUp.gameObject);
-            itemBeingPickedUp = null;
-        }
-        else if (itemBeingPickedUp.name == "kultaharkot4") //Make These if statement what you wanna do for item
-        {
-            GameObject projectile = Instantiate(collectableItem, collectableSpawn.transform.position, Quaternion.identity); //Muutettu
-            Destroy(itemBeingPickedUp.gameObject);
-            itemBeingPickedUp = null;
-        }
-        else if (itemBeingPickedUp.name == "kultaharkot5") //Make These if statement what you wanna do for item
-        {
-            GameObject projectile = Instantiate(collectableItem, collectableSpawn2.transform.position, Quaternion.identity); //Muutettu
-            Destroy(itemBeingPickedUp.gameObject);
-            itemBeingPickedUp = null;
-        }
-        else if (itemBeingPickedUp.name == "kultaharkot6") //Make These if statement what you wanna do for item
-        {
             GameObject projectile = Instantiate(collectableItem, collectableSpawn3.transform.position, Quaternion.identity); //Muutettu
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+        else if (itemBeingPickedUp.name == "Empty") //Make These if statement what you wanna do for item
+        {
+            Debug.Log("Tyhjä Aarre");
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+        else if (itemBeingPickedUp.name == "Cube2") //Make These if statement what you wanna do for item
+        {
+            GameObject projectile = Instantiate(pelastys, pelastysSpawn2.transform.position, Quaternion.identity); //Muutettu
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+        else if (itemBeingPickedUp.name == "Cube3") //Make These if statement what you wanna do for item
+        {
+            GameObject projectile = Instantiate(pelastys, pelastysSpawn3.transform.position, Quaternion.identity); //Muutettu
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+        else if (itemBeingPickedUp.name == "Enemy2") //Make These if statement what you wanna do for item
+        {
+            GameObject projectile = Instantiate(enemy, enemySpawn2.transform.position, Quaternion.identity); //Muutettu
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
         }
@@ -173,6 +196,7 @@ public class HoldToPickup : MonoBehaviour
                 GameObject exit1 = Instantiate(exit, exitSpawn.transform.position, Quaternion.identity); //Muutettu
                 GameObject exit2 = Instantiate(exit, exitSpawn2.transform.position, Quaternion.identity); //Muutettu
                 GameObject exit3 = Instantiate(exit, exitSpawn3.transform.position, Quaternion.identity); //Muutettu
+                GameObject exit4 = Instantiate(exit, exitSpawn4.transform.position, Quaternion.identity); //Muutettu
             }
 
         }

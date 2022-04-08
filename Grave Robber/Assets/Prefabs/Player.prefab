@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1746772059967387864}
   - component: {fileID: 1746772059967387865}
   - component: {fileID: 1746772059967387862}
-  - component: {fileID: 1746772059967387867}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -71,19 +70,6 @@ MonoBehaviour:
   moveSmoothTime: 0.1
   mouseSmoothTime: 0.03
   lockCursor: 1
---- !u!114 &1746772059967387867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746772059967387863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4f3d9d3c808b94ebd4b8d6f134404d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCount: 0
 --- !u!1 &1746772060342885844
 GameObject:
   m_ObjectHideFlags: 0

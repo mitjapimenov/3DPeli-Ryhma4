@@ -4,13 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class HoldToPickup : MonoBehaviour
 {
     public GameObject enemy; // Muutettu
     public GameObject enemySpawn;//Muutettu
     public GameObject enemySpawn2;//Muutettu
-    public GameObject enemySpawn3; //Muutettu    
+    public GameObject enemySpawn3; //Muutettu
+
+    public GameObject exit;
+    public GameObject exitSpawn;
+    public GameObject exitSpawn2;
+    public GameObject exitSpawn3;
+
+    public int collectable;
+    public GameObject collectableItem;
+    public GameObject collectableSpawn;
+    public GameObject collectableSpawn2;
+    public GameObject collectableSpawn3;
 
     [SerializeField]
     public Camera camera1;
@@ -91,6 +103,30 @@ public class HoldToPickup : MonoBehaviour
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
         }
+        else if (itemBeingPickedUp.name == "kultaharkot4") //Make These if statement what you wanna do for item
+        {
+            GameObject projectile = Instantiate(collectableItem, collectableSpawn.transform.position, Quaternion.identity); //Muutettu
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+        else if (itemBeingPickedUp.name == "kultaharkot5") //Make These if statement what you wanna do for item
+        {
+            GameObject projectile = Instantiate(collectableItem, collectableSpawn2.transform.position, Quaternion.identity); //Muutettu
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+        else if (itemBeingPickedUp.name == "kultaharkot6") //Make These if statement what you wanna do for item
+        {
+            GameObject projectile = Instantiate(collectableItem, collectableSpawn3.transform.position, Quaternion.identity); //Muutettu
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
+        }
+        else if (itemBeingPickedUp.name == "ExitTheStage(Clone)") //Make These if statement what you wanna do for item
+        {
+            Debug.Log("ExitStage");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Load new stage demos end screen
+        }
+
 
     }
 
@@ -115,12 +151,30 @@ public class HoldToPickup : MonoBehaviour
             else if (hititem != null && hititem != itemBeingPickedUp)
             {
                 itemBeingPickedUp = hititem;
-                itemNameText.text = "Dig " /*+ itemBeingPickedUp.name*/;
+                itemNameText.text = "Search " /*+ itemBeingPickedUp.name*/;
             }
         }
         else
         {
             itemBeingPickedUp = null;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collectable"))
+        {
+            Destroy(other.gameObject);
+            collectable += 1;
+
+            if (collectable == 3)
+            {
+                Debug.Log("you here something far away...");
+                GameObject exit1 = Instantiate(exit, exitSpawn.transform.position, Quaternion.identity); //Muutettu
+                GameObject exit2 = Instantiate(exit, exitSpawn2.transform.position, Quaternion.identity); //Muutettu
+                GameObject exit3 = Instantiate(exit, exitSpawn3.transform.position, Quaternion.identity); //Muutettu
+            }
+
         }
     }
 }

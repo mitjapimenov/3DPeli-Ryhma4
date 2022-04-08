@@ -34,7 +34,7 @@ public class HoldToPickup : MonoBehaviour
     [SerializeField]
     private LayerMask layermask;
     [SerializeField]
-    private float pickupTime = 2f; //Muutettu nyt 10f ja sama Player Hierarchy kohdassa.
+    private float pickupTime = 10f; //Muutettu nyt 10f ja sama Player Hierarchy kohdassa.
     [SerializeField]
     private RectTransform pickupImageRoot;
     [SerializeField]

@@ -23158,7 +23158,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6905373496886902684, guid: f93c502a223940842a698882e322dcad, type: 3}
       propertyPath: m_BaseOffset
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6905373496886902684, guid: f93c502a223940842a698882e322dcad, type: 3}
       propertyPath: m_ObstacleAvoidanceType

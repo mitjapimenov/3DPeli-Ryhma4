@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChaseState : IEnemyState
-{
+{    
     private StatePatternEnemy enemy;
 
     public ChaseState(StatePatternEnemy statePatternEnemy)
@@ -19,7 +19,7 @@ public class ChaseState : IEnemyState
 
     public void OnTriggerEnter(Collider other)
     {
-
+        
     }
 
     public void OnTriggerState()

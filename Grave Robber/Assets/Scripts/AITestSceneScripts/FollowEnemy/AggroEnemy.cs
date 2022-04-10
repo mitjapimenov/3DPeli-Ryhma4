@@ -59,4 +59,16 @@ public class AggroEnemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, aggroRange);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+            Debug.Log("Törmäys pelaajaan");
+            gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+            gameObject.GetComponent<NavMeshAgent>().speed = 0;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(Vector3.zero);
+        }
+    }
 }

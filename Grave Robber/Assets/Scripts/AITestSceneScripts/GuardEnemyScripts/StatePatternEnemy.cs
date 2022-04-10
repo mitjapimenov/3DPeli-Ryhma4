@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class StatePatternEnemy : MonoBehaviour
-{
+{    
     public float searchTurnSpeed;   //Nopeus millä Enemy Kääntyy alert tilassa
     public float searchingDuration; 
     public float sightRange;
@@ -53,6 +53,18 @@ public class StatePatternEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        currentState.OnTriggerEnter(other);
+        currentState.OnTriggerEnter(other);        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+            Debug.Log("Törmäys pelaajaan");
+            gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+            gameObject.GetComponent<NavMeshAgent>().speed = 0;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(Vector3.zero);
+        }        
     }
 }

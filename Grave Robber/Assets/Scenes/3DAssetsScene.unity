@@ -16459,6 +16459,10 @@ MonoBehaviour:
   pelastysSpawn: {fileID: 1021795064}
   pelastysSpawn2: {fileID: 1396139344}
   pelastysSpawn3: {fileID: 494683177}
+  anim1: {fileID: 1105045071}
+  anim2: {fileID: 768430842}
+  anim3: {fileID: 1251729080}
+  anim4: {fileID: 1074794362}
   camera1: {fileID: 995552820}
   layermask:
     serializedVersion: 2
@@ -18055,6 +18059,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83fc83a7a3923c0449b80518d4f73fb3, type: 3}
   m_PrefabInstance: {fileID: 766942620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &768430842 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2934120688531123747, guid: b71e9b9e461193f4a9975d864e912b2c, type: 3}
+  m_PrefabInstance: {fileID: 1278359752}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &775493187
 PrefabInstance:
@@ -23774,6 +23783,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff2b988deb3c2dd43bef6caed7e2a6b6, type: 3}
+--- !u!95 &1074794362 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2934120688531123747, guid: b71e9b9e461193f4a9975d864e912b2c, type: 3}
+  m_PrefabInstance: {fileID: 1003001224}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1075900924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24301,6 +24315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84d82e17c926f1c44a976ca9d9207ff0, type: 3}
+--- !u!95 &1105045071 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2934120688531123747, guid: b71e9b9e461193f4a9975d864e912b2c, type: 3}
+  m_PrefabInstance: {fileID: 5953997995927969186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1107273445
 GameObject:
   m_ObjectHideFlags: 0
@@ -27727,6 +27746,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83fc83a7a3923c0449b80518d4f73fb3, type: 3}
   m_PrefabInstance: {fileID: 1247368078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1251729080 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2934120688531123747, guid: b71e9b9e461193f4a9975d864e912b2c, type: 3}
+  m_PrefabInstance: {fileID: 7195828232159693077}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1257609674
 PrefabInstance:

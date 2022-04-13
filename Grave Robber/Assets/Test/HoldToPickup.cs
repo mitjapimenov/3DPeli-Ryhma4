@@ -29,6 +29,11 @@ public class HoldToPickup : MonoBehaviour
     public GameObject pelastysSpawn2;
     public GameObject pelastysSpawn3;
 
+    public Animator anim1;
+    public Animator anim2;
+    public Animator anim3;
+    public Animator anim4;
+
     [SerializeField]
     public Camera camera1;
     [SerializeField]
@@ -45,6 +50,11 @@ public class HoldToPickup : MonoBehaviour
     private Item itemBeingPickedUp;
     private float currentPickUpTimerElapsed;
 
+    private void Start()
+    {
+        //StartCoroutine("Wait", 5f);
+        //anim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -57,7 +67,7 @@ public class HoldToPickup : MonoBehaviour
 
             if (Input.GetButton("Fire1"))
             {
-                IncrementPickupProgressAndTryComplete();
+                IncrementPickupProgressAndTryComplete();                
             }
             else
             {
@@ -91,7 +101,7 @@ public class HoldToPickup : MonoBehaviour
     private void MoveItemToInventory()
     {
         if (itemBeingPickedUp.name == "kultaharkot1") //Make These if statement what you wanna do for item
-        {
+        {            
             GameObject projectile = Instantiate(collectableItem, collectableSpawn.transform.position, Quaternion.identity); //Muutettu
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
@@ -146,11 +156,16 @@ public class HoldToPickup : MonoBehaviour
         }
         else if (itemBeingPickedUp.name == "ExitTheStage(Clone)") //Make These if statement what you wanna do for item
         {
-            Debug.Log("ExitStage");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Load new stage demos end screen
+            anim1.SetBool("open", true);
+            //anim1.Play("Gate_Open_anim");
+            anim2.SetBool("open", true);
+            //anim2.Play("Gate_Open_anim");
+            anim3.SetBool("open", true);
+            //anim3.Play("Gate_Open_anim");
+            anim4.SetBool("open", true);
+            //anim4.Play("Gate_Open_anim");
+            StartCoroutine("Wait", 5f);        // You can change the float to make coroutine faster or slower    
         }
-
-
     }
 
     private bool HasItemTargetted()
@@ -196,9 +211,17 @@ public class HoldToPickup : MonoBehaviour
                 GameObject exit1 = Instantiate(exit, exitSpawn.transform.position, Quaternion.identity); //Muutettu
                 GameObject exit2 = Instantiate(exit, exitSpawn2.transform.position, Quaternion.identity); //Muutettu
                 GameObject exit3 = Instantiate(exit, exitSpawn3.transform.position, Quaternion.identity); //Muutettu
-                GameObject exit4 = Instantiate(exit, exitSpawn4.transform.position, Quaternion.identity); //Muutettu
+                GameObject exit4 = Instantiate(exit, exitSpawn4.transform.position, Quaternion.identity); //Muutettu                
             }
 
         }
+    }
+
+    IEnumerator Wait(float waitTime)
+    {
+        //Debug.Log("Testi1");
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("ExitStage");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Load new stage demos end screen
     }
 }

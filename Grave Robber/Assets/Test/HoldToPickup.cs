@@ -34,6 +34,8 @@ public class HoldToPickup : MonoBehaviour
     public Animator anim3;
     public Animator anim4;
 
+    //public AudioClip collectableSound;
+
     [SerializeField]
     public Camera camera1;
     [SerializeField]
@@ -202,6 +204,8 @@ public class HoldToPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Collectable"))
         {
+            //AudioSource.PlayClipAtPoint(collectableSound, transform.position);
+            GameObject.Find("CollectSound").GetComponents<AudioSource>()[0].Play();
             Destroy(other.gameObject);
             collectable += 1;
 

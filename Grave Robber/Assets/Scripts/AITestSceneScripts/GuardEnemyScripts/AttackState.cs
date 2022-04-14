@@ -72,7 +72,7 @@ public class AttackState : IEnemyState
     {
         enemy.Indicator.material.color = Color.red;
         enemy.navMeshAgent.destination = enemy.chaseTarget.position;
-        enemy.navMeshAgent.isStopped = false;
+        enemy.navMeshAgent.isStopped = false;        
     }
 
     //MUUTETTU

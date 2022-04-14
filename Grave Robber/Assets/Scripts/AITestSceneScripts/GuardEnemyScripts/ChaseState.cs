@@ -73,6 +73,7 @@ public class ChaseState : IEnemyState
         enemy.Indicator.material.color = Color.red;
         enemy.navMeshAgent.destination = enemy.chaseTarget.position;
         enemy.navMeshAgent.isStopped = false;
+        //enemy.navMeshAgent.speed = 4f;
     }
 
     //MUUTETTU
@@ -85,4 +86,6 @@ public class ChaseState : IEnemyState
     {
         //Attack muutokset
     }
+
+
 }

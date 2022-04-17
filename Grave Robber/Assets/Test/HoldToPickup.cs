@@ -34,6 +34,14 @@ public class HoldToPickup : MonoBehaviour
     public Animator anim3;
     public Animator anim4;
 
+    public GameObject picture;
+
+    public GameObject myEnemy;
+    public bool activateEnemy1;
+
+    public GameObject myEnemy2;
+    public bool activateEnemy2;    
+
     //public AudioClip collectableSound;
 
     [SerializeField]
@@ -110,8 +118,9 @@ public class HoldToPickup : MonoBehaviour
         }
         else if (itemBeingPickedUp.name == "Cube1") //Make These if statement what you wanna do for item
         {
-            GameObject projectile = Instantiate(pelastys, pelastysSpawn.transform.position, Quaternion.identity); //Muutettu
+            //GameObject projectile = Instantiate(pelastys, pelastysSpawn.transform.position, Quaternion.identity);
             Destroy(itemBeingPickedUp.gameObject);
+            StartCoroutine("Wait2", 1f);
             itemBeingPickedUp = null;
         }
         else if (itemBeingPickedUp.name == "kultaharkot2") //Make These if statement what you wanna do for item
@@ -122,7 +131,11 @@ public class HoldToPickup : MonoBehaviour
         }
         else if (itemBeingPickedUp.name == "Enemy1") //Make These if statement what you wanna do for item
         {
-            GameObject projectile = Instantiate(enemy, enemySpawn.transform.position, Quaternion.identity); //Muutettu
+            //GameObject projectile = Instantiate(enemy, enemySpawn.transform.position, Quaternion.identity);
+            if(activateEnemy1 == true)
+            {
+                myEnemy.SetActive(true);
+            }
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
         }
@@ -140,19 +153,25 @@ public class HoldToPickup : MonoBehaviour
         }
         else if (itemBeingPickedUp.name == "Cube2") //Make These if statement what you wanna do for item
         {
-            GameObject projectile = Instantiate(pelastys, pelastysSpawn2.transform.position, Quaternion.identity); //Muutettu
+            //GameObject projectile = Instantiate(pelastys, pelastysSpawn2.transform.position, Quaternion.identity);
             Destroy(itemBeingPickedUp.gameObject);
+            StartCoroutine("Wait2", 1f);
             itemBeingPickedUp = null;
         }
         else if (itemBeingPickedUp.name == "Cube3") //Make These if statement what you wanna do for item
         {
-            GameObject projectile = Instantiate(pelastys, pelastysSpawn3.transform.position, Quaternion.identity); //Muutettu
+            //GameObject projectile = Instantiate(pelastys, pelastysSpawn3.transform.position, Quaternion.identity);
             Destroy(itemBeingPickedUp.gameObject);
+            StartCoroutine("Wait2", 1f);
             itemBeingPickedUp = null;
         }
         else if (itemBeingPickedUp.name == "Enemy2") //Make These if statement what you wanna do for item
         {
-            GameObject projectile = Instantiate(enemy, enemySpawn2.transform.position, Quaternion.identity); //Muutettu
+            //GameObject projectile = Instantiate(enemy, enemySpawn2.transform.position, Quaternion.identity);
+            if (activateEnemy2 == true)
+            {
+                myEnemy2.SetActive(true);
+            }
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
         }
@@ -166,6 +185,8 @@ public class HoldToPickup : MonoBehaviour
             //anim3.Play("Gate_Open_anim");
             anim4.SetBool("open", true);
             //anim4.Play("Gate_Open_anim");
+            Destroy(itemBeingPickedUp.gameObject);
+            itemBeingPickedUp = null;
             StartCoroutine("Wait", 5f);        // You can change the float to make coroutine faster or slower    
         }
     }
@@ -211,7 +232,7 @@ public class HoldToPickup : MonoBehaviour
 
             if (collectable == 3)
             {
-                Debug.Log("you here something far away...");
+                Debug.Log("you hear something far away...");
                 GameObject exit1 = Instantiate(exit, exitSpawn.transform.position, Quaternion.identity); //Muutettu
                 GameObject exit2 = Instantiate(exit, exitSpawn2.transform.position, Quaternion.identity); //Muutettu
                 GameObject exit3 = Instantiate(exit, exitSpawn3.transform.position, Quaternion.identity); //Muutettu
@@ -219,6 +240,18 @@ public class HoldToPickup : MonoBehaviour
             }
 
         }
+    }
+
+    public void NewColor()
+    {
+        Debug.Log("Pel‰stys p‰‰lle");
+        picture.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+    }
+
+    public void NewColor2()
+    {
+        Debug.Log("Pel‰stys pois");
+        picture.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
     }
 
     IEnumerator Wait(float waitTime)
@@ -229,4 +262,15 @@ public class HoldToPickup : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         //SceneManager.LoadScene(0); 
     }
+
+    IEnumerator Wait2(float wait2Time)
+    {
+        NewColor();
+        Debug.Log("Pel‰stytt‰j‰ picture");
+        //Debug.Log("Testi1");
+        yield return new WaitForSeconds(wait2Time);
+        NewColor2();        
+        //SceneManager.LoadScene(0); 
+    }
+
 }

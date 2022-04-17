@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AggroEnemy : MonoBehaviour
 {
@@ -16,12 +18,14 @@ public class AggroEnemy : MonoBehaviour
     //Animator animator; reference to the animator component
     NavMeshAgent agent; // reference to the NavMeshAgent
 
+    public Image picture;    
+
     void Awake()
     {
         //animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         if (agent != null) { agentSpeed = agent.speed; }
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;        
         //index = Random.Range(0, waypoints.Length);
 
         InvokeRepeating("Tick", 0, 0.5f);
@@ -68,7 +72,24 @@ public class AggroEnemy : MonoBehaviour
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
             gameObject.GetComponent<NavMeshAgent>().speed = 0;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(Vector3.zero);
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(Vector3.zero);            
+            NewColor();
+            StartCoroutine("Wait", 5f);
         }
+    }
+
+    public void NewColor()
+    {
+        Debug.Log("uusi väri");
+        picture.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+    }
+
+    IEnumerator Wait(float waitTime)
+    {
+        //Debug.Log("Testi1");
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Loading Stage");
+        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(0); 
     }
 }

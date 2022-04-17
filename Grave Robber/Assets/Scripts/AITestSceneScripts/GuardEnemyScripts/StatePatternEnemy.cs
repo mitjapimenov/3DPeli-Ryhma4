@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StatePatternEnemy : MonoBehaviour
 {    
@@ -11,6 +13,7 @@ public class StatePatternEnemy : MonoBehaviour
     public Transform[] waypoints;
     public Transform eye;   //Pallosilmä, tästä lähtee näkösäde
     public MeshRenderer Indicator;  //Laatikko Enemyn päällä, Muuttaa väriä tilan mukaan, Debuggitarkoitus.
+    public GameObject picture;    
 
     [HideInInspector] public Transform chaseTarget; //Kun Enemy jahtaa, tämä on kohde. Yleensä Player.
     [HideInInspector] public IEnemyState currentState;  //Tähän tallennetaan voimassaoleva tila
@@ -48,7 +51,7 @@ public class StatePatternEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentState.UpdateState();
+        currentState.UpdateState();        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,6 +68,23 @@ public class StatePatternEnemy : MonoBehaviour
             gameObject.GetComponent<NavMeshAgent>().speed = 0;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.GetComponent<NavMeshAgent>().SetDestination(Vector3.zero);
+            NewColor();
+            StartCoroutine("Wait", 5f);
         }        
+    }
+
+    public void NewColor()
+    {
+        Debug.Log("uusi väri");
+        picture.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+    }
+
+    IEnumerator Wait(float waitTime)
+    {
+        //Debug.Log("Testi1");
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Loading Stage");
+        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(0); 
     }
 }

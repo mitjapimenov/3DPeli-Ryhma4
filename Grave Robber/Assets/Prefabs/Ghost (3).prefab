@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aggroRange: 10
+  picture: {fileID: 0}
 --- !u!54 &-7575899982084880176
 Rigidbody:
   m_ObjectHideFlags: 0

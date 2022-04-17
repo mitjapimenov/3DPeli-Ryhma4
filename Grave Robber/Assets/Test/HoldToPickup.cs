@@ -226,6 +226,7 @@ public class HoldToPickup : MonoBehaviour
         //Debug.Log("Testi1");
         yield return new WaitForSeconds(waitTime);
         Debug.Log("ExitStage");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Load new stage demos end screen
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(0); 
     }
 }

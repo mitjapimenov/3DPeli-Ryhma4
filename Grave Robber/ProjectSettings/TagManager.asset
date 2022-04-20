@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Collectable
   - Canvas
+  - exit
+  - Item
   layers:
   - Default
   - TransparentFX

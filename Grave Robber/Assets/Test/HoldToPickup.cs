@@ -53,9 +53,15 @@ public class HoldToPickup : MonoBehaviour
     [SerializeField]
     private RectTransform pickupImageRoot;
     [SerializeField]
+    private RectTransform openupImageRoot;
+    [SerializeField]
     private Image pickupProgressImage;
     [SerializeField]
+    private Image pickupProgressImage2;
+    [SerializeField]    
     private TextMeshProUGUI itemNameText;
+    [SerializeField]
+    private TextMeshProUGUI itemNameText2;
 
     private Item itemBeingPickedUp;
     private float currentPickUpTimerElapsed;
@@ -73,11 +79,12 @@ public class HoldToPickup : MonoBehaviour
 
         if (HasItemTargetted())
         {
-            pickupImageRoot.gameObject.SetActive(true);
+            //Debug.Log("Testi");
+            //pickupImageRoot.gameObject.SetActive(true);
 
             if (Input.GetButton("Fire1"))
             {
-                IncrementPickupProgressAndTryComplete();                
+                IncrementPickupProgressAndTryComplete();
             }
             else
             {
@@ -86,17 +93,37 @@ public class HoldToPickup : MonoBehaviour
 
             UpdatePickupProgressImage();
         }
+        //if (HasItemTargetted())
+        //{
+        //    Debug.Log("Testi2");
+        //    openupImageRoot.gameObject.SetActive(true);
+
+        //    if (Input.GetButton("Fire1"))
+        //    {
+        //        IncrementPickupProgressAndTryComplete();
+        //    }
+        //    else
+        //    {
+        //        currentPickUpTimerElapsed = 0f;
+        //    }
+
+        //    UpdatePickupProgressImage();
+        //}
         else
         {
             pickupImageRoot.gameObject.SetActive(false);
+            openupImageRoot.gameObject.SetActive(false);
             currentPickUpTimerElapsed = 0f;
         }
-    }
+    }    
 
     private void UpdatePickupProgressImage()
     {
         float pct = currentPickUpTimerElapsed / pickupTime;
         pickupProgressImage.fillAmount = pct;
+
+        float pct2 = currentPickUpTimerElapsed / pickupTime;
+        pickupProgressImage2.fillAmount = pct2;
     }
 
     private void IncrementPickupProgressAndTryComplete()
@@ -192,7 +219,7 @@ public class HoldToPickup : MonoBehaviour
     }
 
     private bool HasItemTargetted()
-    {
+    {        
         return itemBeingPickedUp != null;
     }
 
@@ -208,17 +235,26 @@ public class HoldToPickup : MonoBehaviour
             if (hititem == null)
             {
                 itemBeingPickedUp = null;
-            }
-            else if (hititem != null && hititem != itemBeingPickedUp)
+            }            
+            else if (hititem != null && hititem != itemBeingPickedUp && hititem.CompareTag("Item"))
             {
+                pickupImageRoot.gameObject.SetActive(true);
                 itemBeingPickedUp = hititem;
                 itemNameText.text = "Search " /*+ itemBeingPickedUp.name*/;
             }
-        }
+            else if (hititem != null && hititem != itemBeingPickedUp && hititem.CompareTag("exit"))
+            {
+                openupImageRoot.gameObject.SetActive(true);
+                itemBeingPickedUp = hititem;
+                itemNameText2.text = " Open " /*+ itemBeingPickedUp.name*/;
+            }
+
+        }        
         else
         {
             itemBeingPickedUp = null;
         }
+        
     }
 
     public void OnTriggerEnter(Collider other)
@@ -259,8 +295,9 @@ public class HoldToPickup : MonoBehaviour
         //Debug.Log("Testi1");
         yield return new WaitForSeconds(waitTime);
         Debug.Log("ExitStage");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //SceneManager.LoadScene(0); 
+        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
     IEnumerator Wait2(float wait2Time)

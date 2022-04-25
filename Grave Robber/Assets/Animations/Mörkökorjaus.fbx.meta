@@ -1,17 +1,20 @@
 fileFormatVersion: 2
-guid: c9fc1669245c0094e93583c5ea6e4168
+guid: 284bdefb937a5794dacfb59c196b2229
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -893699516137075093
-    second: walkingK
-  - first:
       74: -3889830323219305035
     second: walking
   - first:
+      74: -893699516137075093
+    second: walkingK
+  - first:
       74: -9156502687650683668
     second: walkingK.001
+  - first:
+      74: -1556759899403274958
+    second: "k\xE4vely"
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -44,7 +47,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: "k\xE4vely"
+      takeName: "k\xE4vely"
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []

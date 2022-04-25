@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform playerCamera = null;
     [SerializeField] float mouseSensitivity = 3.5f;
     [SerializeField] float walkSpeed = 6.0f;
+    [SerializeField] float runSpeed = 10.0f;
     [SerializeField] float gravity = -13.0f;
     [SerializeField][Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     [SerializeField][Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
     {
         UpdateMouseLook();
         UpdateMovement();
+        CharacterRun();
+        
     }
 
     void UpdateMouseLook()
@@ -70,5 +73,17 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * walkSpeed + Vector3.up * velocityY;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void CharacterRun()                     //Character lähtee juoksuun LeftShiftillä.
+    {
+          if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            walkSpeed = runSpeed;
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+           walkSpeed = 6.0f;
+        }
     }
 }

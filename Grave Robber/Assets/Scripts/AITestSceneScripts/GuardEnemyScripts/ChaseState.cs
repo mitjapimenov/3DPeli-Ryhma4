@@ -51,11 +51,13 @@ public class ChaseState : IEnemyState
         RaycastHit hit;
         if (Physics.Raycast(enemy.eye.position, enemyToTarget, out hit, enemy.sightRange) && hit.collider.CompareTag("Player"))
         {
-            enemy.chaseTarget = hit.transform;           
+            enemy.chaseTarget = hit.transform;
+            enemy.navMeshAgent.speed = 7f;
         }
         else
         {
             enemy.lastKnownPlayerPosition = enemy.chaseTarget.position;
+            enemy.navMeshAgent.speed = 3f;
             ToTrackingState();
         }
     }

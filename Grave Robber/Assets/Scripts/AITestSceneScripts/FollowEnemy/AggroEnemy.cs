@@ -18,6 +18,8 @@ public class AggroEnemy : MonoBehaviour
     //Animator animator; reference to the animator component
     NavMeshAgent agent; // reference to the NavMeshAgent
 
+    public Transform enemy;
+
     public Image picture;    
 
     void Awake()
@@ -69,6 +71,8 @@ public class AggroEnemy : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             Debug.Log("Törmäys pelaajaan");
+            enemy.GetComponent<BoxCollider>().enabled = false;
+            GameObject.Find("EnemySound").GetComponents<AudioSource>()[0].Play();
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
             gameObject.GetComponent<NavMeshAgent>().speed = 0;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;

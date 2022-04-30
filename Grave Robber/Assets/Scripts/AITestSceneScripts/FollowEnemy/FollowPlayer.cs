@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class FollowPlayer : MonoBehaviour
 {
     public NavMeshAgent enemy;
+    public Transform thisEnemy;
     public Transform player;
 
     public GameObject picture;
@@ -28,6 +29,8 @@ public class FollowPlayer : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             Debug.Log("Törmäys pelaajaan");
+            thisEnemy.GetComponent<BoxCollider>().enabled = false;
+            GameObject.Find("EnemySound").GetComponents<AudioSource>()[0].Play();
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
             gameObject.GetComponent<NavMeshAgent>().speed = 0;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;

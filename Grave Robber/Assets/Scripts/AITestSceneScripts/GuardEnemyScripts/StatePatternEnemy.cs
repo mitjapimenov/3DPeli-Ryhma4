@@ -12,6 +12,7 @@ public class StatePatternEnemy : MonoBehaviour
     public float sightRange;
     public Transform[] waypoints;
     public Transform eye;   //Pallosilmä, tästä lähtee näkösäde
+    public Transform enemy; // MUUTOS
     public MeshRenderer Indicator;  //Laatikko Enemyn päällä, Muuttaa väriä tilan mukaan, Debuggitarkoitus.
     public GameObject picture;    
 
@@ -63,7 +64,10 @@ public class StatePatternEnemy : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
+            
             Debug.Log("Törmäys pelaajaan");
+            enemy.GetComponent<CapsuleCollider>().enabled = false;
+            GameObject.Find("EnemySound").GetComponents<AudioSource>()[0].Play();
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
             gameObject.GetComponent<NavMeshAgent>().speed = 0;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;

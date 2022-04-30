@@ -215,6 +215,7 @@ public class HoldToPickup : MonoBehaviour
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
             StartCoroutine("Wait", 5f);        // You can change the float to make coroutine faster or slower    
+            GameObject.Find("OpenGate").GetComponents<AudioSource>()[0].Play();
         }
     }
 

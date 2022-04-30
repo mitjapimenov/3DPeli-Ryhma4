@@ -14,7 +14,9 @@ public class StatePatternEnemy : MonoBehaviour
     public Transform eye;   //Pallosilmä, tästä lähtee näkösäde
     public Transform enemy; // MUUTOS
     public MeshRenderer Indicator;  //Laatikko Enemyn päällä, Muuttaa väriä tilan mukaan, Debuggitarkoitus.
-    public GameObject picture;    
+    public GameObject picture;
+    public Animator animator;
+    //public bool run;
 
     [HideInInspector] public Transform chaseTarget; //Kun Enemy jahtaa, tämä on kohde. Yleensä Player.
     [HideInInspector] public IEnemyState currentState;  //Tähän tallennetaan voimassaoleva tila

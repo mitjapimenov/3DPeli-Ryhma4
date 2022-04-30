@@ -42,7 +42,9 @@ public class AlertState : IEnemyState
     {
         searchTimer = 0;
         enemy.currentState = enemy.patrolState;
-        enemy.navMeshAgent.speed = 3f;
+        enemy.navMeshAgent.speed = 3f;        
+        GameObject.Find("Vartija_animaatio").GetComponent<Animator>().Play("Armature|Walking");
+        //enemy.animator.SetBool("run", true);
     }
 
     void Look()
@@ -53,7 +55,9 @@ public class AlertState : IEnemyState
         if (Physics.Raycast(enemy.eye.position, enemy.eye.forward, out hit, enemy.sightRange) && hit.collider.CompareTag("Player"))
         {
             enemy.chaseTarget = hit.transform;
-            enemy.navMeshAgent.speed = 7f;
+            enemy.navMeshAgent.speed = 7f;            
+            GameObject.Find("Vartija_animaatio").GetComponent<Animator>().Play("Armature|Run");
+            //enemy.animator.SetBool("run", false);
 
             ToChaseState();
         }

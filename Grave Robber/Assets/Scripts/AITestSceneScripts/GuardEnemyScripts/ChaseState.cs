@@ -53,6 +53,8 @@ public class ChaseState : IEnemyState
         {
             enemy.chaseTarget = hit.transform;
             enemy.navMeshAgent.speed = 7f;
+            GameObject.Find("Vartija_animaatio").GetComponent<Animator>().Play("Armature|Run");
+            //enemy.animator.SetBool("run", false);
         }
         else
         {

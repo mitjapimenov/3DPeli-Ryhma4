@@ -113,6 +113,7 @@ public class HoldToPickup : MonoBehaviour
         //}
         else
         {
+            GetComponent<PlayerController>().enabled = true; // MUUTETTU
             pickupImageRoot.gameObject.SetActive(false);
             openupImageRoot.gameObject.SetActive(false);
             currentPickUpTimerElapsed = 0f;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChaseState : IEnemyState
-{
+{    
     private StatePatternEnemy enemy;
 
     public ChaseState(StatePatternEnemy statePatternEnemy)
@@ -19,7 +19,7 @@ public class ChaseState : IEnemyState
 
     public void OnTriggerEnter(Collider other)
     {
-
+        
     }
 
     public void OnTriggerState()
@@ -51,11 +51,15 @@ public class ChaseState : IEnemyState
         RaycastHit hit;
         if (Physics.Raycast(enemy.eye.position, enemyToTarget, out hit, enemy.sightRange) && hit.collider.CompareTag("Player"))
         {
-            enemy.chaseTarget = hit.transform;           
+            enemy.chaseTarget = hit.transform;
+            enemy.navMeshAgent.speed = 7f;
+            GameObject.Find("Vartija_animaatio").GetComponent<Animator>().Play("Armature|Run");
+            //enemy.animator.SetBool("run", false);
         }
         else
         {
             enemy.lastKnownPlayerPosition = enemy.chaseTarget.position;
+            enemy.navMeshAgent.speed = 3f;
             ToTrackingState();
         }
     }
@@ -73,6 +77,7 @@ public class ChaseState : IEnemyState
         enemy.Indicator.material.color = Color.red;
         enemy.navMeshAgent.destination = enemy.chaseTarget.position;
         enemy.navMeshAgent.isStopped = false;
+        //enemy.navMeshAgent.speed = 4f;
     }
 
     //MUUTETTU
@@ -85,4 +90,6 @@ public class ChaseState : IEnemyState
     {
         //Attack muutokset
     }
+
+
 }

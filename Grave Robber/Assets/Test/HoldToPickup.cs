@@ -84,10 +84,12 @@ public class HoldToPickup : MonoBehaviour
 
             if (Input.GetButton("Fire1"))
             {
+                GetComponent<PlayerController>().enabled = false;
                 IncrementPickupProgressAndTryComplete();
             }
             else
             {
+                GetComponent<PlayerController>().enabled = true;
                 currentPickUpTimerElapsed = 0f;
             }
 
@@ -111,6 +113,7 @@ public class HoldToPickup : MonoBehaviour
         //}
         else
         {
+            GetComponent<PlayerController>().enabled = true; // MUUTETTU
             pickupImageRoot.gameObject.SetActive(false);
             openupImageRoot.gameObject.SetActive(false);
             currentPickUpTimerElapsed = 0f;

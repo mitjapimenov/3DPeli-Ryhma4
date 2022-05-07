@@ -17293,7 +17293,7 @@ MonoBehaviour:
   layermask:
     serializedVersion: 2
     m_Bits: 128
-  pickupTime: 10
+  pickupTime: 8
   pickupImageRoot: {fileID: 1871286147}
   openupImageRoot: {fileID: 1651401332}
   pickupProgressImage: {fileID: 127233632}

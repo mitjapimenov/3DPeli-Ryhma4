@@ -84,9 +84,18 @@ public class HoldToPickup : MonoBehaviour
 
             if (Input.GetButton("Fire1"))
             {
-                GetComponent<PlayerController>().enabled = false;
-                transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-                IncrementPickupProgressAndTryComplete();
+                if (pickupImageRoot.gameObject.activeSelf)
+                {
+                    GetComponent<PlayerController>().enabled = false;
+                    transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+                    IncrementPickupProgressAndTryComplete();
+                }
+                else
+                {
+                    GetComponent<PlayerController>().enabled = false;
+                    IncrementPickupProgressAndTryComplete();
+                }
+                
             }
             else
             {

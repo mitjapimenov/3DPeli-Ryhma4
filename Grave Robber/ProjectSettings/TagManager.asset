@@ -8,6 +8,7 @@ TagManager:
   - Canvas
   - exit
   - Item
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -89,6 +89,7 @@ public class HoldToPickup : MonoBehaviour
                 if (pickupImageRoot.gameObject.activeSelf)
                 {
                     GetComponent<PlayerController>().enabled = false;
+                    GetComponent<AudioSource>().volume = 0f; // Footstep volume 0f when moving and try to dig same time
                     transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
                     IncrementPickupProgressAndTryComplete();
                 }

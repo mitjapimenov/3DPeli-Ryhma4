@@ -96,6 +96,7 @@ public class HoldToPickup : MonoBehaviour
                 else
                 {
                     GetComponent<PlayerController>().enabled = false;
+                    GetComponent<AudioSource>().volume = 0f; // Footstep volume 0f when moving and try to open same time
                     IncrementPickupProgressAndTryComplete();
                 }
                 

@@ -33,6 +33,9 @@ public class HoldToPickup : MonoBehaviour
     public Animator anim2;
     public Animator anim3;
     public Animator anim4;
+    public Animator anim5;
+    public Animator anim6;
+    public Animator anim7;
 
     public GameObject picture;
 
@@ -165,8 +168,8 @@ public class HoldToPickup : MonoBehaviour
         else if (itemBeingPickedUp.name == "Cube1") //Make These if statement what you wanna do for item
         {
             //GameObject projectile = Instantiate(pelastys, pelastysSpawn.transform.position, Quaternion.identity);
-            Destroy(itemBeingPickedUp.gameObject);
-            StartCoroutine("Wait2", 1f);
+            StartCoroutine("Wait2", 2f);
+            Destroy(itemBeingPickedUp.gameObject);            
             itemBeingPickedUp = null;
         }
         else if (itemBeingPickedUp.name == "kultaharkot2") //Make These if statement what you wanna do for item
@@ -201,14 +204,14 @@ public class HoldToPickup : MonoBehaviour
         {
             //GameObject projectile = Instantiate(pelastys, pelastysSpawn2.transform.position, Quaternion.identity);
             Destroy(itemBeingPickedUp.gameObject);
-            StartCoroutine("Wait2", 1f);
+            StartCoroutine("Wait3", 2f);
             itemBeingPickedUp = null;
         }
         else if (itemBeingPickedUp.name == "Cube3") //Make These if statement what you wanna do for item
         {
             //GameObject projectile = Instantiate(pelastys, pelastysSpawn3.transform.position, Quaternion.identity);
             Destroy(itemBeingPickedUp.gameObject);
-            StartCoroutine("Wait2", 1f);
+            StartCoroutine("Wait4", 2f);
             itemBeingPickedUp = null;
         }
         else if (itemBeingPickedUp.name == "Enemy2") //Make These if statement what you wanna do for item
@@ -268,7 +271,6 @@ public class HoldToPickup : MonoBehaviour
                 itemBeingPickedUp = hititem;
                 itemNameText2.text = " Open " /*+ itemBeingPickedUp.name*/;
             }
-
         }        
         else
         {
@@ -286,7 +288,7 @@ public class HoldToPickup : MonoBehaviour
             Destroy(other.gameObject);
             collectable += 1;
             collectableText.text = collectable + " / 3";
-            StartCoroutine("Wait3", 3f);
+            StartCoroutine("Wait5", 3f);
 
             if (collectable == 3)
             {
@@ -300,17 +302,26 @@ public class HoldToPickup : MonoBehaviour
         }
     }
 
-    public void NewColor()
+    public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Pel‰stys p‰‰lle");
-        picture.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("CollisionHoldTopickup");            
+            GetComponent<AudioSource>().enabled = false;
+        }
     }
 
-    public void NewColor2()
-    {
-        Debug.Log("Pel‰stys pois");
-        picture.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
-    }
+    //public void NewColor()
+    //{
+    //    Debug.Log("Pel‰stys p‰‰lle");
+    //    picture.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+    //}
+
+    //public void NewColor2()
+    //{
+    //    Debug.Log("Pel‰stys pois");
+    //    picture.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
+    //}
 
     public void NewColor3()
     {
@@ -320,7 +331,7 @@ public class HoldToPickup : MonoBehaviour
 
     public void NewColor4()
     {
-        Debug.Log("CollectableUIP‰‰lle");
+        Debug.Log("CollectableUIpoisp‰‰lt‰");
         collectableText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 255, 255, 0);
     }
 
@@ -336,19 +347,44 @@ public class HoldToPickup : MonoBehaviour
 
     IEnumerator Wait2(float wait2Time)
     {
-        NewColor();
-        Debug.Log("Pel‰stytt‰j‰ picture");
+        //NewColor();
+        //Debug.Log("Pel‰stytt‰j‰ picture");
         //Debug.Log("Testi1");
+        anim5.SetBool("open", true);       
         yield return new WaitForSeconds(wait2Time);
-        NewColor2();        
+        anim5.SetBool("open", false);
+        //NewColor2();        
         //SceneManager.LoadScene(0); 
     }
 
     IEnumerator Wait3(float wait3Time)
     {
-        NewColor3();
+        //NewColor();
+        //Debug.Log("Pel‰stytt‰j‰ picture");
+        //Debug.Log("Testi1");
+        anim6.SetBool("open", true);
         yield return new WaitForSeconds(wait3Time);
-        NewColor4();
+        anim6.SetBool("open", false);
+        //NewColor2();        
+        //SceneManager.LoadScene(0); 
     }
 
+    IEnumerator Wait4(float wait4Time)
+    {
+        //NewColor();
+        //Debug.Log("Pel‰stytt‰j‰ picture");
+        //Debug.Log("Testi1");
+        anim7.SetBool("open", true);
+        yield return new WaitForSeconds(wait4Time);
+        anim7.SetBool("open", false);
+        //NewColor2();        
+        //SceneManager.LoadScene(0); 
+    }
+
+    IEnumerator Wait5(float wait5Time)
+    {
+        NewColor3();
+        yield return new WaitForSeconds(wait5Time);
+        NewColor4();
+    }
 }

@@ -66,6 +66,8 @@ public class HoldToPickup : MonoBehaviour
     private Item itemBeingPickedUp;
     private float currentPickUpTimerElapsed;
 
+    [SerializeField]
+    private TextMeshProUGUI collectableText;
     private void Start()
     {
         //StartCoroutine("Wait", 5f);
@@ -281,6 +283,8 @@ public class HoldToPickup : MonoBehaviour
             GameObject.Find("CollectSound").GetComponents<AudioSource>()[0].Play();
             Destroy(other.gameObject);
             collectable += 1;
+            collectableText.text = collectable + " / 3";
+            StartCoroutine("Wait3", 3f);
 
             if (collectable == 3)
             {
@@ -306,6 +310,18 @@ public class HoldToPickup : MonoBehaviour
         picture.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
     }
 
+    public void NewColor3()
+    {
+        Debug.Log("CollectableUIP‰‰lle");
+        collectableText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 255, 255, 255);
+    }
+
+    public void NewColor4()
+    {
+        Debug.Log("CollectableUIP‰‰lle");
+        collectableText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 255, 255, 0);
+    }
+
     IEnumerator Wait(float waitTime)
     {
         //Debug.Log("Testi1");
@@ -324,6 +340,13 @@ public class HoldToPickup : MonoBehaviour
         yield return new WaitForSeconds(wait2Time);
         NewColor2();        
         //SceneManager.LoadScene(0); 
+    }
+
+    IEnumerator Wait3(float wait3Time)
+    {
+        NewColor3();
+        yield return new WaitForSeconds(wait3Time);
+        NewColor4();
     }
 
 }

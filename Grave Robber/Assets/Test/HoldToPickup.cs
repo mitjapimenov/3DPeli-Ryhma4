@@ -71,6 +71,9 @@ public class HoldToPickup : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI collectableText;
+    [SerializeField]
+    private TextMeshProUGUI nothingText;
+
     private void Start()
     {
         //StartCoroutine("Wait", 5f);
@@ -197,6 +200,7 @@ public class HoldToPickup : MonoBehaviour
         else if (itemBeingPickedUp.name == "Empty") //Make These if statement what you wanna do for item
         {
             Debug.Log("Tyhj‰ Aarre");
+            StartCoroutine("Wait6", 2f);
             Destroy(itemBeingPickedUp.gameObject);
             itemBeingPickedUp = null;
         }
@@ -335,6 +339,20 @@ public class HoldToPickup : MonoBehaviour
         collectableText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 255, 255, 0);
     }
 
+    public void NewColor5()
+    {
+        Debug.Log("NothingTextUIP‰‰lle");
+        nothingText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 255, 255, 255);
+    }
+
+    public void NewColor6()
+    {
+        Debug.Log("NothingTextUIpoisp‰‰lt‰");
+        nothingText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 255, 255, 0);
+    }
+
+
+
     IEnumerator Wait(float waitTime)
     {
         //Debug.Log("Testi1");
@@ -386,5 +404,12 @@ public class HoldToPickup : MonoBehaviour
         NewColor3();
         yield return new WaitForSeconds(wait5Time);
         NewColor4();
+    }
+
+    IEnumerator Wait6(float wait6Time)
+    {
+        NewColor5();
+        yield return new WaitForSeconds(wait6Time);
+        NewColor6();
     }
 }

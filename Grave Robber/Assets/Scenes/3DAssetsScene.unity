@@ -17456,6 +17456,7 @@ MonoBehaviour:
   itemNameText2: {fileID: 500774307}
   collectableText: {fileID: 2040788072}
   nothingText: {fileID: 879892485}
+  sprintBar: {fileID: 1449441720}
 --- !u!4 &698984215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1746772059967387864, guid: ad87a0fbbebddc242b8ae8bf904c6035, type: 3}

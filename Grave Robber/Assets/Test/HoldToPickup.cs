@@ -73,6 +73,9 @@ public class HoldToPickup : MonoBehaviour
     private TextMeshProUGUI collectableText;
     [SerializeField]
     private TextMeshProUGUI nothingText;
+    [SerializeField]
+    private GameObject sprintBar;
+
 
     private void Start()
     {
@@ -312,6 +315,7 @@ public class HoldToPickup : MonoBehaviour
         {
             Debug.Log("CollisionHoldTopickup");            
             GetComponent<AudioSource>().enabled = false;
+            sprintBar.SetActive(false);
         }
     }
 

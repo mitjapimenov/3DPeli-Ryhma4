@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+        
     }
 
     
@@ -41,8 +42,13 @@ public class PlayerController : MonoBehaviour
         UpdateMouseLook();
         UpdateMovement();
         CharacterRun();
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
+    
 
     void UpdateMouseLook()
     {

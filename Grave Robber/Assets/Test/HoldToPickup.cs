@@ -173,8 +173,8 @@ public class HoldToPickup : MonoBehaviour
         }
         else if (itemBeingPickedUp.name == "Cube1") //Make These if statement what you wanna do for item
         {
-            //GameObject projectile = Instantiate(pelastys, pelastysSpawn.transform.position, Quaternion.identity);
-            StartCoroutine("Wait2", 2f);
+            //GameObject projectile = Instantiate(pelastys, pelastysSpawn.transform.position, Quaternion.identity);            
+            StartCoroutine("Wait2", 2f);            
             Destroy(itemBeingPickedUp.gameObject);            
             itemBeingPickedUp = null;
         }
@@ -372,7 +372,8 @@ public class HoldToPickup : MonoBehaviour
         //NewColor();
         //Debug.Log("Pelästyttäjä picture");
         //Debug.Log("Testi1");
-        anim5.SetBool("open", true);       
+        anim5.SetBool("open", true);        
+        GameObject.Find("ZombieScream").GetComponents<AudioSource>()[0].Play();
         yield return new WaitForSeconds(wait2Time);
         anim5.SetBool("open", false);
         //NewColor2();        
@@ -385,6 +386,7 @@ public class HoldToPickup : MonoBehaviour
         //Debug.Log("Pelästyttäjä picture");
         //Debug.Log("Testi1");
         anim6.SetBool("open", true);
+        GameObject.Find("ZombieScream").GetComponents<AudioSource>()[0].Play();
         yield return new WaitForSeconds(wait3Time);
         anim6.SetBool("open", false);
         //NewColor2();        
@@ -397,6 +399,7 @@ public class HoldToPickup : MonoBehaviour
         //Debug.Log("Pelästyttäjä picture");
         //Debug.Log("Testi1");
         anim7.SetBool("open", true);
+        GameObject.Find("ZombieScream").GetComponents<AudioSource>()[0].Play();
         yield return new WaitForSeconds(wait4Time);
         anim7.SetBool("open", false);
         //NewColor2();        

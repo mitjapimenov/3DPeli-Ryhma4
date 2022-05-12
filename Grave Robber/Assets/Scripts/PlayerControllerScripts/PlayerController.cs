@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField][Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
 
     [SerializeField] bool lockCursor = true;
+    public GameObject panel;
 
     float cameraPitch = 0.0f;
     float velocityY = 0.0f;
@@ -44,8 +45,10 @@ public class PlayerController : MonoBehaviour
         CharacterRun();
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            panel.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            //time.deltaTime = 0;
         }
     }
     

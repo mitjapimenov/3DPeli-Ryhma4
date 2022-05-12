@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     {
         UnlockMouse();
     }
-
+   
     private void UnlockMouse()
     {
         Cursor.lockState = CursorLockMode.None;

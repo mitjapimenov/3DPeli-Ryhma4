@@ -74,6 +74,8 @@ public class HoldToPickup : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI nothingText;
     [SerializeField]
+    private TextMeshProUGUI escapeText;
+    [SerializeField]
     private GameObject sprintBar;
 
 
@@ -299,6 +301,7 @@ public class HoldToPickup : MonoBehaviour
 
             if (collectable == 3)
             {
+                StartCoroutine("Wait7", 3f);
                 Debug.Log("you hear something far away...");
                 GameObject exit1 = Instantiate(exit, exitSpawn.transform.position, Quaternion.identity); //Muutettu
                 GameObject exit2 = Instantiate(exit, exitSpawn2.transform.position, Quaternion.identity); //Muutettu
@@ -353,6 +356,18 @@ public class HoldToPickup : MonoBehaviour
     {
         Debug.Log("NothingTextUIpoisp‰‰lt‰");
         nothingText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 255, 255, 0);
+    }
+
+    public void NewColor7()
+    {
+        Debug.Log("EscapeTextUIP‰‰lle");
+        escapeText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 255, 255, 255);
+    }
+
+    public void NewColor8()
+    {
+        Debug.Log("EscapeTextUIpoisp‰‰lt‰");
+        escapeText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 255, 255, 0);
     }
 
 
@@ -418,5 +433,12 @@ public class HoldToPickup : MonoBehaviour
         NewColor5();
         yield return new WaitForSeconds(wait6Time);
         NewColor6();
+    }
+
+    IEnumerator Wait7(float wait7Time)
+    {
+        NewColor7();
+        yield return new WaitForSeconds(wait7Time);
+        NewColor8();
     }
 }
